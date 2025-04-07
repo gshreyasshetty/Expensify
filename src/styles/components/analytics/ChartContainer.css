@@ -1,0 +1,19 @@
+.chart-container {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-lg);
+}
+
+.chart-container__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.chart-container__content {
+  position: relative;
+  min-height: 300px;
+}

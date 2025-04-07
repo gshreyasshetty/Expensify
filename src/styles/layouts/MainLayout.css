@@ -1,0 +1,31 @@
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left var(--transition-normal);
+  width: 100%;
+}
+
+.content-wrapper.sidebar-open {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--space-lg);
+  overflow-x: hidden;
+  background-color: var(--color-background);
+}
+
+@media screen and (max-width: 768px) {
+  .content-wrapper.sidebar-open {
+    margin-left: 0;
+    width: 100%;
+  }
+}

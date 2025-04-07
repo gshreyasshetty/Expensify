@@ -1,0 +1,316 @@
+:root {
+  /* Light Theme Colors */
+  --color-primary: hsl(215, 85%, 50%);
+  --color-primary-light: hsl(215, 85%, 60%);
+  --color-primary-dark: hsl(215, 85%, 40%);
+  
+  --color-success: hsl(150, 75%, 45%);
+  --color-warning: hsl(40, 90%, 55%);
+  --color-danger: hsl(355, 70%, 55%);
+  --color-info: hsl(200, 75%, 55%);
+  --color-caution: hsl(25, 90%, 60%);
+  
+  --color-background: hsl(210, 20%, 98%);
+  --color-surface: hsl(0, 0%, 100%);
+  --color-border: hsl(210, 10%, 90%);
+  --color-divider: hsl(210, 10%, 95%);
+  
+  --color-text: hsl(210, 25%, 15%);
+  --color-text-secondary: hsl(210, 10%, 40%);
+  --color-text-muted: hsl(210, 5%, 60%);
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  
+  /* Borders */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --border-radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Layout */
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 70px;
+  --header-height: 60px;
+  --content-max-width: 1200px;
+  
+  /* Z-index */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-drawer: 30;
+  --z-modal: 40;
+  --z-tooltip: 50;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Colors */
+  --color-primary: hsl(215, 85%, 60%);
+  --color-primary-light: hsl(215, 85%, 70%);
+  --color-primary-dark: hsl(215, 85%, 50%);
+  
+  --color-success: hsl(150, 70%, 50%);
+  --color-warning: hsl(40, 85%, 60%);
+  --color-danger: hsl(355, 65%, 60%);
+  --color-info: hsl(200, 70%, 60%);
+  --color-caution: hsl(25, 85%, 65%);
+  
+  --color-background: hsl(215, 25%, 12%);
+  --color-surface: hsl(215, 25%, 18%);
+  --color-border: hsl(215, 15%, 25%);
+  --color-divider: hsl(215, 20%, 20%);
+  
+  --color-text: hsl(210, 15%, 90%);
+  --color-text-secondary: hsl(210, 10%, 70%);
+  --color-text-muted: hsl(210, 5%, 50%);
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* App container */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h1, .h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2, .h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3, .h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4, .h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5, .h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6, .h6 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+.highlight {
+  color: var(--color-primary);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.1);
+}
+
+.form-error {
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm);
+  background-color: hsla(355, 70%, 55%, 0.1);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--color-danger);
+}
+
+.input-with-prefix {
+  position: relative;
+}
+
+.input-prefix {
+  position: absolute;
+  left: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+}
+
+.input-with-prefix .form-control {
+  padding-left: calc(var(--space-md) * 2);
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.negative {
+  color: var(--color-danger);
+}
+
+.chart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  border: 1px dashed var(--color-border);
+}
+
+/* Status colors */
+.success {
+  --status-color: var(--color-success);
+}
+
+.warning {
+  --status-color: var(--color-warning);
+}
+
+.caution {
+  --status-color: var(--color-caution);
+}
+
+.danger {
+  --status-color: var(--color-danger);
+}
+
+/* Toast customizations */
+.Toastify__toast {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.Toastify__toast--success {
+  border-left: 4px solid var(--color-success);
+}
+
+.Toastify__toast--error {
+  border-left: 4px solid var(--color-danger);
+}
+
+.Toastify__toast--warning {
+  border-left: 4px solid var(--color-warning);
+}
+
+.Toastify__toast--info {
+  border-left: 4px solid var(--color-info);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --font-size-4xl: 2rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.5rem;
+  }
+}

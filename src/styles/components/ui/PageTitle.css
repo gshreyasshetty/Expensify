@@ -1,0 +1,13 @@
+.page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: var(--font-size-2xl);
+  }
+}

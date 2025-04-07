@@ -1,0 +1,96 @@
+.expense-list {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.expense-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.expense-table th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.expense-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-divider);
+  font-size: var(--font-size-sm);
+}
+
+.expense-row {
+  transition: background-color var(--transition-fast);
+}
+
+.expense-row:hover {
+  background-color: rgba(var(--color-primary), 0.03);
+}
+
+.expense-name {
+  font-weight: 500;
+}
+
+.expense-amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.expense-date {
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.expense-budget {
+  white-space: nowrap;
+}
+
+.budget-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--border-radius-full);
+  background-color: hsla(var(--budget-color), 0.1);
+  color: hsl(var(--budget-color));
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.budget-tag:hover {
+  background-color: hsla(var(--budget-color), 0.2);
+  text-decoration: none;
+}
+
+.expense-actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.actions-column {
+  width: 1%;
+}
+
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-full);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.delete-button:hover {
+  background-color: rgba(var(--color-danger), 0.1);
+  color: var(--color-danger);
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Base Circle -->
+  <circle cx="32" cy="32" r="30" fill="#5E72E4" />
+  
+  <!-- Stylized E -->
+  <rect x="20" y="17" width="24" height="6" rx="2" fill="white" />
+  <rect x="20" y="29" width="18" height="6" rx="2" fill="white" />
+  <rect x="20" y="41" width="24" height="6" rx="2" fill="white" />
+  <rect x="20" y="17" width="6" height="30" rx="2" fill="white" />
+</svg>
