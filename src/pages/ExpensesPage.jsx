@@ -1,20 +1,14 @@
 import { useState, useMemo } from 'react';
 import { useAppContext } from '../contexts/AppContext';
 import { formatCurrency } from '../utils/helpers';
-
-// Components
 import PageTitle from '../components/ui/PageTitle';
 import ExpenseList from '../components/expense/ExpenseList';
 import FilterControls from '../components/expense/FilterControls';
 import EmptyState from '../components/ui/EmptyState';
 import Button from '../components/ui/Button';
 import AddExpenseModal from '../components/expense/AddExpenseModal';
-
-// Icons
 import { PlusIcon, FilterIcon } from '../components/icons';
-
 import '../styles/pages/ExpensesPage.css';
-
 const ExpensesPage = () => {
   const { expenses, budgets } = useAppContext();
   const [filters, setFilters] = useState({
@@ -25,27 +19,18 @@ const ExpensesPage = () => {
   });
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
-  
-  // Apply filters and sorting
   const filteredExpenses = useMemo(() => {
     if (!expenses.length) return [];
-    
     return expenses
       .filter(expense => {
-        // Filter by search term
         const matchesSearch = !filters.searchTerm || 
           expense.name.toLowerCase().includes(filters.searchTerm.toLowerCase());
-        
-        // Filter by budget
         const matchesBudget = filters.budgetId === 'all' || 
           expense.budgetId === filters.budgetId;
-        
         return matchesSearch && matchesBudget;
       })
       .sort((a, b) => {
-        // Sort by selected field
         let comparison = 0;
-        
         if (filters.sortBy === 'date') {
           comparison = a.createdAt - b.createdAt;
         } else if (filters.sortBy === 'amount') {
@@ -53,20 +38,14 @@ const ExpensesPage = () => {
         } else if (filters.sortBy === 'name') {
           comparison = a.name.localeCompare(b.name);
         }
-        
-        // Apply sort direction
         return filters.sortDirection === 'desc' ? -comparison : comparison;
       });
   }, [expenses, filters]);
-  
-  // Calculate total filtered expenses
   const totalFiltered = filteredExpenses.reduce((sum, expense) => sum + expense.amount, 0);
-  
   return (
     <div className="expenses-page">
       <header className="page-header">
         <PageTitle>Expenses Manager</PageTitle>
-        
         <div className="header-actions">
           <Button 
             variant="outline"
@@ -75,7 +54,6 @@ const ExpensesPage = () => {
           >
             {showFilters ? 'Hide Filters' : 'Show Filters'}
           </Button>
-          
           <Button 
             variant="primary"
             onClick={() => setShowAddExpenseModal(true)}
@@ -86,7 +64,6 @@ const ExpensesPage = () => {
           </Button>
         </div>
       </header>
-      
       {showFilters && (
         <FilterControls 
           filters={filters}
@@ -94,7 +71,6 @@ const ExpensesPage = () => {
           budgets={budgets}
         />
       )}
-      
       {expenses.length > 0 ? (
         <>
           <div className="expenses-summary">
@@ -103,19 +79,16 @@ const ExpensesPage = () => {
                 <span className="stat-label">Total Expenses</span>
                 <span className="stat-value">{expenses.length}</span>
               </div>
-              
               <div className="stat">
                 <span className="stat-label">Filtered Expenses</span>
                 <span className="stat-value">{filteredExpenses.length}</span>
               </div>
-              
               <div className="stat">
                 <span className="stat-label">Total Amount (Filtered)</span>
                 <span className="stat-value">{formatCurrency(totalFiltered)}</span>
               </div>
             </div>
           </div>
-          
           {filteredExpenses.length > 0 ? (
             <ExpenseList 
               expenses={filteredExpenses} 
@@ -140,8 +113,6 @@ const ExpensesPage = () => {
           }}
         />
       )}
-      
-      {/* Modals */}
       <AddExpenseModal 
         isOpen={showAddExpenseModal}
         onClose={() => setShowAddExpenseModal(false)}
@@ -150,5 +121,4 @@ const ExpensesPage = () => {
     </div>
   );
 };
-
 export default ExpensesPage;
