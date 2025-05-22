@@ -52,7 +52,7 @@ Expensify bridges the gap between your financial goals and reality. Whether you'
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/expensify.git
+   git clone https://github.com/gshreyasshetty/expensify.git
    cd expensify
    ```
 
